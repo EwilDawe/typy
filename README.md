@@ -1,0 +1,2 @@
+# typy
+Windows' typing automation

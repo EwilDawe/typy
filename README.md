@@ -1,11 +1,16 @@
 # typy
 > Windows' typing automation
 
-This file is currently only Windows compatible and requires:
-
 ## Requirements & Dependencies:
-- *python* [Python](https://python.org/downloads)
-- *pywin32* [Pywin32](https://pypi.python.org/pypi/pywin32)
+- *Python*  :  [Python](https://python.org/downloads)
+- *Pywin32* :  [Pywin32](https://pypi.python.org/pypi/pywin32)
 
+###Author's note:
+Although I wouldn't consider myself a programming novice, I definitely consider myself a GitHub novice.
+As for my first project, I'd like to create something that is usable by the community and therefore will be taking suggestions to improve typy.
+Contact me via [reddit](https://www.reddit.com/user/Ewildawe/)
+Thank you in advance for any posted suggestions!
 
-
+####To-do:
+- Add useful keyboard shortcuts
+- Add mouse support

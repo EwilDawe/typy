@@ -13,5 +13,5 @@ Contact me via [reddit](https://www.reddit.com/user/Ewildawe/).
 Thank you in advance for any posted suggestions!
 
 ####To-do:
+- ~~Add mouse support~~
 - Add useful keyboard shortcuts
-- Add mouse support

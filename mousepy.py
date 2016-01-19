@@ -29,6 +29,15 @@ def moveLine(x, y, speed = 1): #TO BE REFACTORED
 			time.sleep(0.001)
 		moveMouse(x, y)
 
+def moveArc():
+	"""
+	Moves the cursor in an arc with a specified radius to (x, y) at a specified speed.
+	Speed is measured in pixels per millisecond.
+	"""
+	
+	_x, _y = win32api.GetCursorPos()
+	
+
 def clickLeft(x = win32api.GetCursorPos()[0], y = win32api.GetCursorPos()[1]):
 	'''
 	Simulates a mouse left click on pixel (x,y) if x and y are provided.

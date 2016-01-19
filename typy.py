@@ -1,5 +1,5 @@
 ﻿import win32api, win32con
-import config
+import data
 import time
 
 def press(*keys):
@@ -8,18 +8,18 @@ def press(*keys):
 	"""
 	
 	for key in keys:
-		win32api.keybd_event(config.code[key], 0, 0, 0)
+		win32api.keybd_event(data.code[key], 0, 0, 0)
 		release(key)
 
-def hold(*keys, time = 0):
+def hold(*keys, hold_time = 0):
 	"""
 	Simulates the holding of all the keys passed to the function.
 	These keys are held down for a default period of 0 seconds before release.
 	"""
 	
 	for key in keys:
-		win32api.keybd_event(config.code[key], 0, 0, 0)
-	time.sleep(time)
+		win32api.keybd_event(data.code[key], 0, 0, 0)
+	time.sleep(hold_time)
 	release(*keys)
 
 def release(*keys):
@@ -28,7 +28,7 @@ def release(*keys):
 	"""
 	
 	for key in keys:
-		win32api.keybd_event(config.code[key], 0, win32con.KEYEVENTF_KEYUP, 0)
+		win32api.keybd_event(data.code[key], 0, win32con.KEYEVENTF_KEYUP, 0)
 		
 def type(s = ''):
 	"""

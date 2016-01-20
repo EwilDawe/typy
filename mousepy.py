@@ -27,33 +27,32 @@ def moveLine(x, y, speed = 1): #TO BE REFACTORED
 		for b in range(_y, y + 1, speed) if _y <= y else range(_y, y - 1, -speed):
 			moveMouse(x, b)
 			time.sleep(0.001)
-		moveMouse(x, y)
+		moveMouse(x, y)	
 
-def moveArc():
-	"""
-	Moves the cursor in an arc with a specified radius to (x, y) at a specified speed.
-	Speed is measured in pixels per millisecond.
-	"""
-	
-	_x, _y = win32api.GetCursorPos()
-	
-
-def clickLeft(x = win32api.GetCursorPos()[0], y = win32api.GetCursorPos()[1]):
+def clickLeft(x = None, y = None):
 	'''
 	Simulates a mouse left click on pixel (x,y) if x and y are provided.
 	If x and y are not passed to this function, a mouse click is simulated at the current (x,y)
 	'''
 	
+	if not(x) or not(y):
+		cursor = win32api.GetCursorPos()
+		if not(x): x = cursor[0]
+		if not(y): y = cursor[1]
 	moveMouse(x, y)
 	win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
 	win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
 	
-def clickRight(x = win32api.GetCursorPos()[0], y = win32api.GetCursorPos()[1]):
+def clickRight(x = None, y = None):
 	"""
 	Simulates a mouse right click on pixel (x,y) if x and y are provided.
 	If x and y are not passed to this function, a mouse click is simulated at the current (x,y)
 	"""
 	
+	if not(x) or not(y):
+		cursor = win32api.GetCursorPos()
+		if not(x): x = cursor[0]
+		if not(y): y = cursor[1]
 	moveMouse(x, y)
 	win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0)
 	win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP, x, y, 0, 0)	

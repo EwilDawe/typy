@@ -15,5 +15,5 @@ Thank you in advance for any posted suggestions!
 ####To-do:
 - ~~Add mouse support~~
 - Add useful keyboard shortcuts
-- Add dragging functionality to mousepy
+- ~~Add dragging functionality to mousepy~~
 - Make typy a pypi repository

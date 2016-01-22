@@ -27,7 +27,19 @@ def moveLine(x, y, speed = 1): #TO BE REFACTORED
 		for b in range(_y, y + 1, speed) if _y <= y else range(_y, y - 1, -speed):
 			moveMouse(x, b)
 			time.sleep(0.001)
-		moveMouse(x, y)	
+		moveMouse(x, y)
+
+def drag(*args, function = moveMouse):
+	"""
+	Drags the mouse along a path mapped by a function.
+	args: arguments passed to the function.
+	"""
+	
+	x, y = win32api.GetCursorPos()
+	win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
+	function(*args)
+	x, y = win32api.GetCursorPos()
+	win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
 
 def clickLeft(x = None, y = None):
 	'''

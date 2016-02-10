@@ -1,32 +1,31 @@
 ﻿import win32api, win32con
 import time
 
-def moveMouse(x, y): #Jumps to x,y - no fluid motion yet
+def moveMouse(x, y):
 	"""
 	Moves the cursor to (x, y)
 	"""
 	
 	win32api.SetCursorPos((x, y))
 	
-def moveLine(x, y, speed = 1): #TO BE REFACTORED
+def moveLine(x, y, speed = 1):
 	"""
 	Moves the cursor in a straight line to (x, y) at a certain speed.
-	Speed is measured in pixels per millisecond
 	"""
 	
 	_x, _y = win32api.GetCursorPos()
-	if not(x - _x):	#Make sure gradient is defined - stops ZeroDivisionError
+	if not(x - _x):
 		m = (y - _y)/(x - _x)
 		c = y - (m*x)
 		for a in range(_x, x + 1, speed) if _x <= x else range(_x, x - 1, -speed):
 			b = int(m*a + c)
 			moveMouse(a, b)
-			time.sleep(0.001)
+			time.sleep(0.01)
 		moveMouse(x, y)
 	else:
 		for b in range(_y, y + 1, speed) if _y <= y else range(_y, y - 1, -speed):
 			moveMouse(x, b)
-			time.sleep(0.001)
+			time.sleep(0.01)
 		moveMouse(x, y)
 
 def drag(*args, function = moveMouse):

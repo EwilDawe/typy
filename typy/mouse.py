@@ -1,24 +1,25 @@
-﻿import win32api, win32con
+﻿import win32api
+import win32con
 import time
 
 
-def move(x, y, path = 'sudden'):
+def move(x, y):
     """
     Moves the cursor to (x, y)
     """
     win32api.SetCursorPos((x, y))
 
 
-def moveline(x, y, speed = 1):
+def move_line(x, y, speed = 1):
     """
     Moves the cursor in a straight line to (x, y) at a certain speed.
     """
 
     _x, _y = win32api.GetCursorPos()
-    if not (x - _x):
+    if not (x - _x):  # make sure difference between x ordinates is not 0, as the gradient would be undefined
         m = (y - _y) / (x - _x)
         c = y - (m * x)
-        for a in range(_x, x + 1, speed) if _x <= x else range(_x, x - 1, -speed):
+        for a in range(_x, x + 1, speed) if _x < x else range(_x, x - 1, -speed):
             b = int(m * a + c)
             move(a, b)
             time.sleep(0.01)
@@ -44,10 +45,12 @@ def click_left(x = None, y = None):
     If x and y are not passed to this function, a mouse click is simulated at the current (x,y)
     """
 
-    if not (x) or not (y):
+    if not x or not y:
         cursor = win32api.GetCursorPos()
-        if not (x): x = cursor[0]
-        if not (y): y = cursor[1]
+        if not x:
+            x = cursor[0]
+        if not y:
+            y = cursor[1]
     move(x, y)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
@@ -59,10 +62,12 @@ def click_right(x = None, y = None):
     If x and y are not passed to this function, a mouse click is simulated at the current (x,y)
     """
 
-    if not (x) or not (y):
+    if not x or not y:
         cursor = win32api.GetCursorPos()
-        if not (x): x = cursor[0]
-        if not (y): y = cursor[1]
+        if not x:
+            x = cursor[0]
+        if not y:
+            y = cursor[1]
     move(x, y)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP, x, y, 0, 0)

@@ -4,7 +4,7 @@ import win32con
 import pickle
 
 with open('data.dat', 'rb') as file:
-    keys = pickle.load(file)
+    codes = pickle.load(file)
 
 
 def press(*keys):
@@ -13,7 +13,7 @@ def press(*keys):
     """
 
     for key in keys:
-        win32api.keybd_event(keys[key], 0, 0, 0)
+        win32api.keybd_event(codes[key], 0, 0, 0)
         release(key)
 
 
@@ -24,7 +24,7 @@ def hold(*keys, hold_time = 0):
     """
 
     for key in keys:
-        win32api.keybd_event(keys[key], 0, 0, 0)
+        win32api.keybd_event(codes[key], 0, 0, 0)
     time.sleep(hold_time)
     release(*keys)
 
@@ -35,7 +35,7 @@ def release(*keys):
     """
 
     for key in keys:
-        win32api.keybd_event(keys[key], 0, win32con.KEYEVENTF_KEYUP, 0)
+        win32api.keybd_event(codes[key], 0, win32con.KEYEVENTF_KEYUP, 0)
 
 
 def write(s = ''):

@@ -18,10 +18,20 @@ setup(
     license = 'MIT',
     packages = find_packages(),
     classifiers = [
+        # Development status
         'Development Status :: 3 - Alpha',
+
+        # Audience
         'Intended Audience :: Developers',
-        'Licence :: MIT Licence',
-        'Programming Language :: Python :: 3.x',
+
+        # License
+        'License :: OSI Approved :: MIT License',
+
+        # Operating System
+        'Operating System :: Microsoft :: Windows',
+
+        # Version
+        'Programming Language :: Python :: 3',
     ],
 
     keywords = "python macro development",

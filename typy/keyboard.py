@@ -17,7 +17,7 @@ def press(*keys):
         release(key)
 
 
-def hold(*keys, hold_time = 0):
+def hold(*keys, hold_time = 0, hold_while = None):
     """
     Simulates the holding of all the keys passed to the function.
     These keys are held down for a default period of 0 seconds before release.
@@ -25,7 +25,11 @@ def hold(*keys, hold_time = 0):
 
     for key in keys:
         win32api.keybd_event(codes[key], 0, 0, 0)
-    time.sleep(hold_time)
+    if callable(hold_while):
+        while hold_while():
+            pass
+    else:
+        time.sleep(hold_time)
     release(*keys)
 
 

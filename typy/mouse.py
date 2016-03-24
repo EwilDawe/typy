@@ -48,7 +48,7 @@ def move_arc(x, y, r, speed = 1, orientation = True):
     end = math.atan2(y - centre[1], x - centre[0])
     while theta < end:
         move(*list(map(round, (centre[0] + r*math.cos(theta), centre[1] + r*math.sin(theta)))))
-        theta += 0.01
+        theta += speed/100
         time.sleep(0.01)
     move(x, y)
 

@@ -12,8 +12,8 @@ macroing tools on windows.
 ####To-do:
 - ~~Add mouse support~~
 - ~~Add dragging functionality to mouse~~
-- Add a larger range of different mouse traversal methods
+- ~~Add mouse traversal methods~~
 - Add randomisation of mouse movements
 - Add useful keyboard shortcuts
-- Simulate human typing patterns
+- Simulate human typing patterns and human mouse movement
 - Make typy a pypi repository

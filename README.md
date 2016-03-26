@@ -6,8 +6,7 @@
 - *Pywin32* :  [Pywin32](https://pypi.python.org/pypi/pywin32)
 
 ### Mission:
-typy aims to be an easy-to-use module that has it's applications when designing
-macroing tools on windows.
+typy aims to be an easy-to-use framework used for creating macro tools on windows systems.
 
 ####To-do:
 - ~~Add mouse support~~

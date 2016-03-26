@@ -97,5 +97,3 @@ def click_right(x = None, y = None):
     move(x, y)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP, x, y, 0, 0)
-
-move_arc(1000, 1000, 800, speed = 1)

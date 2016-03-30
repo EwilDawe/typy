@@ -1,9 +1,10 @@
-﻿import time
+﻿from os import path
+import time
 import win32api
 import win32con
 import pickle
 
-with open('data.dat', 'rb') as file:
+with open(path.join(path.abspath(path.dirname(__file__)), 'data', 'codes.dat'), 'rb') as file:
     codes = pickle.load(file)
 
 

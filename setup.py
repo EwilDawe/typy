@@ -6,7 +6,7 @@ setup(
     version = __version__,
 
     description = "Windows utility for macro design",
-    long_description = "A module for windows users that will aid in the automation of mouse movements and typing",
+    long_description = "typy aims to be an easy-to-use framework for creating macro tools on windows systems",
 
     # Project homepage
     url = "http://github.com/ewildawe/typy",
@@ -34,7 +34,11 @@ setup(
         'Programming Language :: Python :: 3',
     ],
 
-    keywords = "python macro development",
+    keywords = "python macro utility automation",
+
+    package_data = {
+        'typy': ['data/codes.dat'],
+    },
 
     install_requires = [
         'pypiwin32',

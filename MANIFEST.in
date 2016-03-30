@@ -1,0 +1,4 @@
+include setup.py
+include setup.cfg
+recursive-include typy
+recursive-include typy.egg-info

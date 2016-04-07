@@ -7,13 +7,22 @@ import math
 def move(x, y):
     """
     Moves the cursor to (x, y)
+
+    :param x: target x-ordinate
+    :param y: target y-ordinate
+    :return: None
     """
     win32api.SetCursorPos((x, y))
 
 
 def move_line(x, y, speed = 1):
     """
-    Moves the cursor in a straight line to (x, y) at a certain speed.
+    Moves the cursor in a straight line to (x, y) at a certain speed
+
+    :param x: target x-ordinate
+    :param y: target y-ordinate
+    :param speed: pixel traversal rate
+    :return: None
     """
 
     _x, _y = win32api.GetCursorPos()
@@ -34,7 +43,14 @@ def move_line(x, y, speed = 1):
 def move_arc(x, y, r, speed = 1, orientation = True):
     # WARNING: This function currently contains inaccuracy likely due to the rounding of trigonometric functions
     """
-    Moves the cursor in an arc of radius r to (x, y) at a certain speed.
+    Moves the cursor in an arc of radius r to (x, y) at a certain speed
+
+    :param x: target x-ordinate
+    :param y: target y-ordinate
+    :param r: radius
+    :param speed: pixel traversal rate
+    :param orientation: direction of arc
+    :return: None
     """
 
     _x, _y = win32api.GetCursorPos()
@@ -56,6 +72,10 @@ def move_arc(x, y, r, speed = 1, orientation = True):
 def drag(*args, function = move):
     """
     Drags the mouse along a specified path
+
+    :param args: list of arguments passed to function
+    :param function: path to traverse
+    :return: None
     """
 
     x, y = win32api.GetCursorPos()
@@ -65,10 +85,15 @@ def drag(*args, function = move):
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
 
 
-def click_left(x = None, y = None):
+def click_left(x = None, y = None, hold_time = 0):
     """
-    Simulates a mouse left click on pixel (x,y) if x and y are provided.
+    Simulates a mouse left click on pixel (x,y) if x and y are provided
     If x and y are not passed to this function, a mouse click is simulated at the current (x,y)
+
+    :param x: target x-ordinate
+    :param y: target y-ordinate
+    :param hold_time: length of time to hold the mouse's left button
+    :return: None
     """
 
     if not x or not y:
@@ -79,13 +104,19 @@ def click_left(x = None, y = None):
             y = cursor[1]
     move(x, y)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
+    time.sleep(hold_time)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
 
 
-def click_right(x = None, y = None):
+def click_right(x = None, y = None, hold_time = 0):
     """
-    Simulates a mouse right click on pixel (x,y) if x and y are provided.
+    Simulates a mouse right click on pixel (x,y) if x and y are provided
     If x and y are not passed to this function, a mouse click is simulated at the current (x,y)
+
+    :param x: target x-ordinate
+    :param y: target y-ordinate
+    :param hold_time: length of time to hold the mouse's right button
+    :return: None
     """
 
     if not x or not y:
@@ -96,4 +127,5 @@ def click_right(x = None, y = None):
             y = cursor[1]
     move(x, y)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0)
+    time.sleep(hold_time)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP, x, y, 0, 0)
